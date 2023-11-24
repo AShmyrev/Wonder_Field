@@ -41,7 +41,9 @@ public class Tableau {
             System.out.println("Attributes are empty!");
             return;
         }
-        if (position > 0 && position <= letters.length) letters[position - 1] = correctAnswer.charAt(position);
+        if (position > 0 && position <= letters.length) {
+            letters[position - 1] = correctAnswer.charAt(position);
+        }
         printLetters();
     }
     private void openWholeWord() {
@@ -50,11 +52,13 @@ public class Tableau {
     }
     private boolean isThereAnyUnknownLetters() {
         for (char letter : letters) {
-            if ('_' == letter) return true;
+            if ('_' == letter) {
+                return true;
+            }
         }
         return false;
     }
     private boolean areAttributesNotEmpty() {
-        return !correctAnswer.isEmpty() && letters.length != 0;
+        return (!correctAnswer.isEmpty() && letters.length != 0);
     }
 }

@@ -24,7 +24,9 @@ public class Player {
         };
         letter = Character.toLowerCase(letter);
         for (int i = 0; i < russianLetters.length; i++) {
-            if (russianLetters[i] == letter) return true;
+            if (russianLetters[i] == letter) {
+                return true;
+            }
         }
         return false;
     }

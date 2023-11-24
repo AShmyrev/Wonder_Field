@@ -23,7 +23,8 @@ public class Game {
         // TODO: q&a initiation from user
         System.out.println("Инициализация закончена, игра начнется через 5 секунд");
         // TODO: sleep for 5 secs:    Thread.sleep(5000);
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < 50; i++) {
             System.out.println();
+        }
     }
 }
