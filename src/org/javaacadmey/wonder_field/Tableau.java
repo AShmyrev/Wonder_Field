@@ -18,8 +18,11 @@ public class Tableau {
         }
         System.out.print(" ");
         for (char letter : letters) {
-            if (' ' == letter) System.out.print("_ ");
-            else System.out.print(letter + " ");
+            if (' ' == letter) {
+                System.out.print("_ ");
+            } else {
+                System.out.print(letter + " ");
+            }
         }
         System.out.println();
     }
