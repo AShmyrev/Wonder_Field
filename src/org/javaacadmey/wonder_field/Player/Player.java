@@ -5,6 +5,11 @@ import org.javaacadmey.wonder_field.Game;
 public class Player {
     private String name;
     private String city;
+
+    public String getName() {
+        return name;
+    }
+
     public char guessALetter() {
         System.out.println("Введите букву:");
         char userLetter = Game.console.next().charAt(0);
@@ -31,7 +36,7 @@ public class Player {
         return false;
     }
     public String guessAWord() {
-        String userWord = Game.console.nextLine(); // TODO: надо ли как-то проверять?
+        String userWord = Game.console.nextLine();
         System.out.println("Игрок " + this.name + ": слово " + userWord);
         return userWord;
     }

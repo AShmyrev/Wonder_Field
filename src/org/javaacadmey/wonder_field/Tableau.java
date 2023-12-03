@@ -11,6 +11,14 @@ public class Tableau {
         Arrays.fill(letters, '_');
     }
 
+    public char[] getLetters() {
+        return letters;
+    }
+
+    public String getCorrectAnswer() {
+        return correctAnswer;
+    }
+
     public void printLetters() {
         if (!areAttributesNotEmpty()) {
             System.out.println("Attributes are empty!");
@@ -39,7 +47,7 @@ public class Tableau {
 //                "letters=" + Arrays.toString(letters) +
 //                '}';
 //    }
-    private void openALetter(int position) {
+    public void openALetter(int position) {
         if (!areAttributesNotEmpty()) {
             System.out.println("Attributes are empty!");
             return;
