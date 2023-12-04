@@ -9,7 +9,8 @@ public class Game {
     private static final int GROUP_ROUNDS_COUNT = 3;
     public static final int FINAL_ROUND = 3;
     public static Scanner console = new Scanner(System.in);
-    private static String[] qAndA = {
+    // todo: сделать класс для вопросов и ответов
+    private String[] qAndA = {
             "1+1", "2",
             "2+2", "4",
             "3+3", "6",
@@ -18,7 +19,7 @@ public class Game {
     /* private static String[] qAndA = new String[8]; */
     private Tableau tableau;
     private Yakubovich yakubovich;
-
+    // todo: добавить отступы между методами
     public static String getQuestion(int questionNumber) {
         switch (questionNumber) {
             case 1 : return qAndA[0];
@@ -29,7 +30,7 @@ public class Game {
         return "Something went wrong in getQuestion()";
     }
 
-    public static void init() {
+    public void init() {
         int questionOrAnswerNumber = 1;
         for (int i = 0; i < qAndA.length; i++) {
             if (i == 0) {

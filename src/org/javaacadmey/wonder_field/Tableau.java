@@ -48,6 +48,7 @@ public class Tableau {
         }
         return false;
     }
+    // todo: "здесь выкидывается эксепшн"
     private boolean areAttributesNotEmpty() {
         return !correctAnswer.isEmpty() && letters.length != 0;
     }
