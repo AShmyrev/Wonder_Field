@@ -11,14 +11,6 @@ public class Tableau {
         Arrays.fill(letters, '_');
     }
 
-    public char[] getLetters() {
-        return letters;
-    }
-
-    public String getCorrectAnswer() {
-        return correctAnswer;
-    }
-
     public void printLetters() {
         if (!areAttributesNotEmpty()) {
             System.out.println("Attributes are empty!");
@@ -34,19 +26,6 @@ public class Tableau {
         }
         System.out.println();
     }
-
-//    @Override
-//    public String toString() {
-//        System.out.print(" ");
-//        for (int i = 0; i < letters.length; i++) {
-//            if (' ' == letters[i]) System.out.print("_ ");
-//            else System.out.print(letters[i] + " ");
-//        }
-//        System.out.println();
-//        return "Tableau{" +
-//                "letters=" + Arrays.toString(letters) +
-//                '}';
-//    }
     public void openALetter(int position) {
         if (!areAttributesNotEmpty()) {
             System.out.println("Attributes are empty!");
@@ -57,7 +36,7 @@ public class Tableau {
         }
         printLetters();
     }
-    private void openWholeWord() {
+    public void openWholeWord() {
         letters = correctAnswer.toCharArray();
         printLetters();
     }
@@ -70,6 +49,6 @@ public class Tableau {
         return false;
     }
     private boolean areAttributesNotEmpty() {
-        return (!correctAnswer.isEmpty() && letters.length != 0);
+        return !correctAnswer.isEmpty() && letters.length != 0;
     }
 }

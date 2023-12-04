@@ -3,7 +3,6 @@ package org.javaacadmey.wonder_field;
 import java.util.Arrays;
 import java.util.Scanner;
 
-// TODO: Экземпляр класса Game должен содержать в себе массив/ы с вопросами и ответами от юзера
 public class Game {
     private static final int PLAYERS_COUNT = 3;
     private static final int ROUNDS_COUNT = 4;
@@ -36,7 +35,7 @@ public class Game {
             if (i == 0) {
                 System.out.println("\"Запуск игры \"Поле Чудес\" - подготовка к игре. Вам нужно ввести вопросы и ответы для игры.\"\n\"Введите вопрос #" + questionOrAnswerNumber + "\"");
             } else if (i % 2 == 0) {
-                System.out.println("Введите вопрос #" + questionOrAnswerNumber); // 0 2 4 6 8 10 - 1 2 3 4 5 6
+                System.out.println("Введите вопрос #" + questionOrAnswerNumber);
             } else {
                 System.out.println("Введите ответ на вопрос #" + questionOrAnswerNumber);
                 ++questionOrAnswerNumber;

@@ -10,15 +10,7 @@ public class Yakubovich {
     public void endTheShow() {
         System.out.println(this.name + ": Мы прощаемся с вами ровно на одну неделю! Здоровья вам, до встречи!");
     }
-//    public void welcomePlayers(Player[] players, int roundNumber) {
-//        if (Game.FINAL_ROUND == roundNumber) {
-//            System.out.println(this.name + ": приглашаю победителей групповых этапов:\n"
-//            + players[0].getName() + ", " + players[1].getName() + ", " + players[2].getName());
-//        } else {
-//            System.out.println(this.name + ": приглашаю " + roundNumber + "-ю тройку игроков\n"
-//                    + players[0].getName() + ", " + players[1].getName() + ", " + players[2].getName());
-//        }
-//    }
+
     public void welcomePlayers(String[] playerNames, int roundNumber) {
         if (Game.FINAL_ROUND == roundNumber) {
             System.out.println(this.name + ": приглашаю победителей групповых этапов:\n"
@@ -45,32 +37,29 @@ public class Yakubovich {
                     + name + " из " + city + " проходит в финал!");
         }
     }
-    public void checkPlayersAnswer(String playersAnswer, String correctAnswer, Tableau tableau) { // TODO: зачем передавать правильный ответ, если его можно запросить у табло?
-        if (playersAnswer.length() == 1 && checkLetter(playersAnswer.charAt(0), tableau)) {
+    public void checkPlayersAnswer(String playersAnswer, String correctAnswer, Tableau tableau) {
+        if (playersAnswer.length() == 1 && checkLetter(playersAnswer.charAt(0), correctAnswer)) {
             System.out.println(this.name + ": Есть такая буква, откройте ее!");
             tableau.openALetter(playersAnswer.charAt(0));
-        } else if (playersAnswer.length() == 1 && !(checkLetter(playersAnswer.charAt(0), tableau))){
+        } else if (playersAnswer.length() == 1 && !(checkLetter(playersAnswer.charAt(0), correctAnswer))){
             System.out.println(this.name + ": Нет такой буквы! Следующий игрок, крутите барабан!");
-        } else if (!(playersAnswer.length() == 1) && checkWord(playersAnswer, tableau)) {
+        } else if (!(playersAnswer.length() == 1) && checkWord(playersAnswer, correctAnswer)) {
             System.out.println(this.name + ": " + playersAnswer + "! Абсолютно верно!");
-        } else if (!(playersAnswer.length() == 1) && !(checkWord(playersAnswer, tableau))) {
+            tableau.openWholeWord();
+        } else if (!(playersAnswer.length() == 1) && !(checkWord(playersAnswer, correctAnswer))) {
             System.out.println(this.name + ": Неверно! Следующий игрок!");
         }
         System.out.println("__________________________________");
     }
-    private boolean checkLetter(char letterToCheck, Tableau tableau) {
-        for (char letter : tableau.getLetters()) {
+    private boolean checkLetter(char letterToCheck, String correctAnswer) {
+        for (char letter : correctAnswer.toCharArray()) {
             if (letter == letterToCheck) {
                 return true;
             }
         }
         return false;
     }
-    private boolean checkWord(String playersAnswer, Tableau tableau) {
-        if (tableau.getCorrectAnswer().equals(playersAnswer)) {
-            return true;
-        } else {
-            return false;
-        }
+    private boolean checkWord(String playersAnswer, String correctAnswer) {
+        return correctAnswer.equals(playersAnswer);
     }
 }
